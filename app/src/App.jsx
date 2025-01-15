@@ -1,15 +1,51 @@
 import {
   Twitter,
   Youtube,
-  Instagram,
-  Facebook,
   Linkedin,
   ExternalLink,
   Heart,
   Star,
   Sparkles,
   Github,
+  Send,
 } from "lucide-react"
+
+const LINKS = [
+  { text: "Schedule a meeting", url: "https://calendly.com/drumfeet/30min" },
+  { text: "Permaweb ArNS", url: "https://drumfeet.arweave.dev" },
+  { text: "DUMPET", url: "https://dumpet.fun" },
+  { text: "DINDIN", url: "https://dindin.dumpet.fun" },
+  { text: "Everlink", url: "https://everlink.fun" },
+  { text: "WeaveDB", url: "https://github.com/weavedb" },
+  { text: "ArweavePH", url: "https://github.com/ArweavePH" },
+  {
+    text: "Forgetful Bob",
+    url: "https://open.spotify.com/artist/36cp7b4ZqNlAHnDmV0DMeq",
+  },
+  {
+    text: "Fizzles",
+    url: "https://open.spotify.com/artist/0Upodw08tSULrSx6MrBybj",
+  },
+  {
+    text: "Marssmarsshan",
+    url: "https://open.spotify.com/artist/7LrUyckRcDq8ziPFvsjgjG",
+  },
+]
+
+const GRADIENTS = [
+  "from-pink-400 to-pink-500",
+  "from-purple-400 to-purple-500",
+  "from-blue-400 to-blue-500",
+  "from-yellow-400 to-yellow-500",
+  "from-green-400 to-green-500",
+  "from-red-400 to-red-500",
+  "from-indigo-400 to-indigo-500",
+  "from-orange-400 to-orange-500",
+  "from-teal-400 to-teal-500",
+  "from-cyan-400 to-cyan-500",
+  "from-rose-400 to-rose-500",
+  "from-emerald-400 to-emerald-500",
+]
 
 function App() {
   return (
@@ -26,7 +62,13 @@ function App() {
         {/* Share Button with Heart */}
         <div className="flex justify-between items-center mb-4 sm:mb-6">
           <Heart className="text-pink-400 animate-pulse" size={20} />
-          <button className="text-pink-400 hover:text-pink-500 transition-colors">
+          <button
+            className="text-pink-400 hover:text-pink-500 transition-colors"
+            onClick={() => {
+              navigator.clipboard.writeText(window.location.href)
+              // You might want to add a toast notification here to inform the user that the value has been copied
+            }}
+          >
             <ExternalLink size={18} />
           </button>
         </div>
@@ -48,22 +90,56 @@ function App() {
 
         {/* Social Media Icons */}
         <div className="flex justify-center gap-4 sm:gap-6 mb-4 sm:mb-6">
-          <Twitter
-            size={20}
-            className="text-blue-400 hover:scale-125 transition-transform cursor-pointer"
-          />
-          <Youtube
-            size={20}
-            className="text-red-400 hover:scale-125 transition-transform cursor-pointer"
-          />
-          <Github
-            size={20}
-            className="text-blue-500 hover:scale-125 transition-transform cursor-pointer"
-          />
-          <Linkedin
-            size={20}
-            className="text-blue-600 hover:scale-125 transition-transform cursor-pointer"
-          />
+          <a
+            href="https://x.com/drumfeet"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Twitter
+              size={20}
+              className="text-blue-400 hover:scale-125 transition-transform cursor-pointer"
+            />
+          </a>
+          <a
+            href="https://t.me/drumfeet"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Send
+              size={20}
+              className="text-purple-400 hover:scale-125 transition-transform cursor-pointer"
+            />
+          </a>
+          <a
+            href="https://youtube.com/@drumfeet"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Youtube
+              size={20}
+              className="text-red-400 hover:scale-125 transition-transform cursor-pointer"
+            />
+          </a>
+          <a
+            href="https://github.com/drumfeet"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Github
+              size={20}
+              className="text-blue-500 hover:scale-125 transition-transform cursor-pointer"
+            />
+          </a>
+          <a
+            href="https://www.linkedin.com/in/ethanronoelsalazar"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <Linkedin
+              size={20}
+              className="text-blue-600 hover:scale-125 transition-transform cursor-pointer"
+            />
+          </a>
         </div>
 
         {/* Title and Description */}
@@ -79,44 +155,15 @@ function App() {
 
         {/* Links */}
         <div className="space-y-2 sm:space-y-3">
-          {[
-            {
-              text: "Permaweb ArNS",
-              url: "https://drumfeet.arweave.dev",
-            },
-            { text: "DUMPET", url: "https://dumpet.fun" },
-            { text: "DINDIN", url: "https://dindin.dumpet.fun" },
-            { text: "Everlink", url: "https://everlink.fun" },
-            { text: "WeaveDB", url: "https://github.com/weavedb" },
-            { text: "ArweavePH", url: "https://github.com/ArweavePH" },
-            {
-              text: "Forgetful Bob",
-              url: "https://open.spotify.com/artist/36cp7b4ZqNlAHnDmV0DMeq?si=GJ18Z9l8Triz_afYX2VGsA",
-            },
-            {
-              text: "Fizzles",
-              url: "https://open.spotify.com/artist/0Upodw08tSULrSx6MrBybj?si=nwenRmRFTgakiHWREyaW8g",
-            },
-            {
-              text: "Marssmarsshan",
-              url: "https://open.spotify.com/artist/7LrUyckRcDq8ziPFvsjgjG?si=YAWJtAH-TD2dUAPRbd5qXQ",
-            },
-          ].map(({ text, url }, index) => (
+          {LINKS.map(({ text, url }, index) => (
             <a
               key={text}
               href={url}
               target="_blank"
               rel="noopener noreferrer"
-              className={`block text-white py-2.5 sm:py-3 px-4 sm:px-6 rounded-xl sm:rounded-2xl text-center transition-all hover:scale-105 hover:shadow-lg text-sm sm:text-base
-                ${
-                  index === 0
-                    ? "bg-gradient-to-r from-pink-400 to-pink-500"
-                    : index === 1
-                    ? "bg-gradient-to-r from-purple-400 to-purple-500"
-                    : index === 2
-                    ? "bg-gradient-to-r from-blue-400 to-blue-500"
-                    : "bg-gradient-to-r from-yellow-400 to-yellow-500"
-                }`}
+              className={`block text-white py-2.5 sm:py-3 px-4 sm:px-6 rounded-xl sm:rounded-2xl text-center transition-all hover:scale-105 hover:shadow-lg text-sm sm:text-base bg-gradient-to-r ${
+                GRADIENTS[index % GRADIENTS.length]
+              }`}
             >
               {text}
             </a>
