@@ -80,19 +80,33 @@ function App() {
         {/* Links */}
         <div className="space-y-2 sm:space-y-3">
           {[
-            "Permaweb ArNS",
-            "DUMPET",
-            "DINDIN",
-            "Everlink",
-            "WeaveDB",
-            "ArweavePH",
-            "Forgetful Bob",
-            "Fizzles",
-            "Marssmarsshan",
-          ].map((text, index) => (
+            {
+              text: "Permaweb ArNS",
+              url: "https://drumfeet.arweave.dev",
+            },
+            { text: "DUMPET", url: "https://dumpet.fun" },
+            { text: "DINDIN", url: "https://dindin.dumpet.fun" },
+            { text: "Everlink", url: "https://everlink.fun" },
+            { text: "WeaveDB", url: "https://github.com/weavedb" },
+            { text: "ArweavePH", url: "https://github.com/ArweavePH" },
+            {
+              text: "Forgetful Bob",
+              url: "https://open.spotify.com/artist/36cp7b4ZqNlAHnDmV0DMeq?si=GJ18Z9l8Triz_afYX2VGsA",
+            },
+            {
+              text: "Fizzles",
+              url: "https://open.spotify.com/artist/0Upodw08tSULrSx6MrBybj?si=nwenRmRFTgakiHWREyaW8g",
+            },
+            {
+              text: "Marssmarsshan",
+              url: "https://open.spotify.com/artist/7LrUyckRcDq8ziPFvsjgjG?si=YAWJtAH-TD2dUAPRbd5qXQ",
+            },
+          ].map(({ text, url }, index) => (
             <a
               key={text}
-              href="#"
+              href={url}
+              target="_blank"
+              rel="noopener noreferrer"
               className={`block text-white py-2.5 sm:py-3 px-4 sm:px-6 rounded-xl sm:rounded-2xl text-center transition-all hover:scale-105 hover:shadow-lg text-sm sm:text-base
                 ${
                   index === 0
@@ -111,12 +125,17 @@ function App() {
 
         {/* Everlink Footer */}
         <div className="mt-6 sm:mt-8 text-center">
-          <button className="inline-flex items-center gap-2 text-gray-600 hover:text-pink-500 text-xs sm:text-sm group transition-colors">
+          <a
+            href="https://everlink.fun"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 text-gray-600 hover:text-pink-500 text-xs sm:text-sm group transition-colors cursor-pointer"
+          >
             <span className="text-base sm:text-lg group-hover:scale-125 transition-transform">
               🌸
             </span>
             Join drumfeet on Everlink
-          </button>
+          </a>
         </div>
       </div>
     </div>
